@@ -1,0 +1,46 @@
+@use "../tools" as *;
+
+.how-to-order {
+	&__container {
+		@include flex-column;
+		gap: adapt(60, 40);
+	}
+
+	&__list {
+		gap: 20px;
+		--min: 280px;
+	}
+
+	&__item {
+	}
+}
+.how-to-order-item {
+	position: relative;
+	&:not(:last-child) {
+		@include media($mobile, min) {
+			&::after {
+				content: "";
+				position: absolute;
+				top: adapt(50, 32, $mobile);
+				right: 0;
+				width: calc(100% + 40px);
+				height: 1px;
+				border: 1px dashed var(--color-medium-gray);
+				transform: translateX(50%);
+			}
+		}
+	}
+
+	.purchase-info-item {
+		&__icon {
+			position: relative;
+			z-index: 2;
+		}
+
+		&__title {
+		}
+
+		&__descr {
+		}
+	}
+}

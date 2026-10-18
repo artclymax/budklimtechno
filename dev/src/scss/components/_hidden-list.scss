@@ -1,0 +1,36 @@
+@use "../tools" as *;
+
+@include media($mobile) {
+	/* Скрытые элементы списка */
+	[data-hide-list] li.is-hidden {
+		display: none;
+	}
+
+	/* Плавная анимация появления (опционально) */
+	[data-hide-list] li {
+		transition:
+			opacity 0.3s ease,
+			transform 0.3s ease;
+	}
+
+	[data-hide-list] li.is-hidden {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	/* Кнопка */
+	[data-hide-list-btn] {
+	}
+
+	/* Опционально: иконка стрелки на кнопке */
+	[data-hide-list-btn]::after {
+		//content: "↓";
+		//display: inline-block;
+		//margin-left: 6px;
+		//transition: transform 0.3s ease;
+	}
+
+	[data-hide-list].is-expanded + [data-hide-list-btn]::after {
+		//transform: rotate(180deg);
+	}
+}

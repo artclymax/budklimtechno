@@ -1,0 +1,43 @@
+@use "../tools" as *;
+
+.contacts-box {
+	@include flex-column;
+	gap: adapt(20, 10);
+
+	.icon {
+		--width: 44px;
+		--bg-size: 24px;
+		gap: adapt(20, 10);
+	}
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 4px;
+	}
+
+	&__item {
+	}
+
+	&__phones {
+	}
+
+	&__link {
+	}
+
+	&__messengers {
+	}
+
+	&__content {
+	}
+
+	&__descr {
+		font-style: normal;
+	}
+}
+.messengers {
+	&__item {
+	}
+
+	&__link {
+	}
+}

@@ -1,0 +1,180 @@
+@use "../tools" as *;
+
+.mega-menu {
+	--sub-list-width: 360px;
+	@include reset-list;
+	display: flex;
+	align-items: center;
+	position: relative;
+	flex-wrap: wrap;
+	gap: adapt(80, 24, $tablet);
+	@include body-m;
+
+	@include media($tablet) {
+		flex-direction: column;
+		align-items: start;
+		gap: 0;
+	}
+
+	li {
+		padding: 20px;
+		@include media($tablet) {
+			padding: 10px;
+			width: 100%;
+			&:not(:last-child) {
+				border-bottom: 1px solid var(--color-borders);
+			}
+		}
+	}
+
+	// first lvl
+	li.menu-item-has-children {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		&::after {
+			content: "";
+			@include square(24px);
+			flex-shrink: 0;
+			@include bgimg(url("../../../public/images/icons/menu-arrow-down.svg"));
+			transition: all 0.3s;
+		}
+		@include hover {
+			&::after {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	& > li.menu-item-has-children {
+		@include hover {
+			& > .sub-menu {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0px);
+			}
+		}
+		@include media($tablet) {
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1fr 24px;
+			&.open-submenu {
+				&::after {
+					transform: rotate(180deg);
+				}
+				& > .sub-menu {
+					display: block;
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+		& > .sub-menu {
+			@include reset-list;
+			@include custom-scroll(var(--color-light-text), var(--color-borders), thin);
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s ease;
+			@include media($tablet, min) {
+				position: fixed;
+				top: calc(var(--header-height) - 2px);
+				right: 0;
+				width: calc(83% - container-padding() * 2); // фон на всю ширину
+				padding: 23px;
+				box-shadow:
+					0 6px 18px 0 rgba(17, 17, 17, 0),
+					0 1px 2px 0 rgba(17, 17, 17, 0),
+					inset 0 1px 0 0 rgba(255, 255, 255, 0.01);
+				border: 1px solid var(--color-green-tint);
+				margin-inline: container-padding();
+				height: 385px;
+				overflow-y: auto;
+				background: var(--color-white);
+			}
+			@include media($tablet) {
+				display: none;
+				grid-column: 1 / -1;
+				order: 3;
+			}
+
+			li {
+				padding: 10px;
+				@include media($tablet, min) {
+					max-width: var(--sub-list-width);
+				}
+			}
+
+			& > li.menu-item-has-children {
+				&::after {
+					@include media($tablet, min) {
+						transform: rotate(-90deg);
+					}
+				}
+				@include hover {
+					@include media($tablet, min) {
+						background: var(--color-cold-steel-gray);
+					}
+					&::after {
+						transform: rotate(90deg);
+					}
+					& > .sub-menu {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+				@include media($tablet) {
+					display: grid;
+					grid-template-columns: 1fr 24px;
+
+					&.open-submenu {
+						&::after {
+							transform: rotate(180deg);
+						}
+						& > .sub-menu {
+							display: block;
+							opacity: 1;
+							visibility: visible;
+							transform: translateY(0px);
+						}
+					}
+				}
+				& > .sub-menu {
+					@include reset-list;
+
+					@include custom-scroll(var(--color-light-text), var(--color-borders), thin);
+					opacity: 0;
+					visibility: hidden;
+					transition: all 0.3s;
+					@include media($tablet, min) {
+						position: absolute;
+						top: 20px;
+						margin-bottom: 20px;
+						left: var(--sub-list-width);
+						padding-inline: 55px 20px;
+						height: 385px;
+						overflow-y: auto;
+						&::before {
+							content: "";
+							position: absolute;
+							top: 0;
+							left: 40px;
+							width: 1px;
+							height: 90%;
+							background-color: var(--color-cold-steel-gray);
+							z-index: -1;
+						}
+					}
+					@include media($tablet) {
+						display: none;
+						grid-column: 1 / -1;
+						order: 3;
+					}
+				}
+			}
+		}
+	}
+	a {
+		@include reset-link;
+		@include hover-link;
+	}
+}

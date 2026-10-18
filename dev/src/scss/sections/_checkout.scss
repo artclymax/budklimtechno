@@ -1,0 +1,286 @@
+@use "../tools" as *;
+
+.checkout {
+	&__container {
+	}
+
+	&__hero {
+	}
+
+	&__form {
+	}
+
+	&__layout {
+		display: grid;
+		grid-template-columns: 1fr 0.48fr;
+		gap: 60px 20px;
+		align-items: start;
+
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__main {
+		gap: 40px;
+	}
+
+	&__section {
+		padding: adapt(20, 10, $tablet);
+		background: var(--color-primary-50);
+	}
+
+	&__section-title {
+		margin-bottom: 20px;
+	}
+
+	&__fields {
+	}
+
+	&__fields-grid {
+		display: grid;
+		gap: adapt(20, 10, $tablet);
+
+		@include media($mobile, min) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&.checkout__delivery-fields--visible {
+			display: grid !important;
+		}
+	}
+
+	&__field {
+		@include flex-column;
+		gap: 10px;
+		margin: unset;
+	}
+
+	&__label {
+		@include body-s;
+	}
+
+	&__required {
+	}
+
+	&__input {
+		@include body-s;
+		padding: 18px 10px;
+		border-radius: unset;
+	}
+
+	&__error {
+	}
+
+	&__textarea {
+		@include body-s;
+		padding: 18px 10px;
+		border-radius: unset;
+		min-height: 56px;
+		height: 56px;
+	}
+
+	&__radio-group {
+		gap: 20px;
+	}
+
+	&__radio {
+		@include body-l;
+		border-radius: 0;
+		padding: adapt(20, 15, $tablet) adapt(20, 10, $tablet);
+		background: var(--color-white);
+	}
+	.checkout__radio:has(.checkout__radio-input:checked) {
+		background: var(--color-white);
+	}
+	&__radio-input {
+		&:checked + .checkout__radio-mark::after {
+			transform: translate(-50%, -50%);
+			background: var(--color-primary-800);
+		}
+	}
+
+	&__radio-mark {
+		&::after {
+			transform: translate(-50%, -50%);
+			background: var(--color-medium-gray);
+		}
+	}
+
+	&__radio-text {
+	}
+
+	&__delivery-fields {
+		padding: unset;
+		border-top: unset;
+	}
+
+	&__field--wide {
+		grid-column: 1 / -1;
+	}
+
+	&__payment-note {
+		@include reset;
+		@include body-s;
+		color: var(--color-dark-gray);
+		margin-top: 10px;
+	}
+
+	&__sidebar {
+	}
+
+	&__checkbox {
+		align-items: center;
+		gap: 20px;
+	}
+
+	&__checkbox-input {
+		&:checked + .checkout__checkbox-mark::after {
+			transform: initial;
+			opacity: 1;
+		}
+	}
+
+	&__checkbox-mark {
+		@include reset;
+		flex-shrink: 0;
+		border: 1px solid var(--color-medium-gray);
+		border-radius: 6px;
+		@include square(32px);
+		&::after {
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			border: 0;
+			@include square(100%);
+			@include bgimg(url("../../../public/icons/check-icon.svg"), 24px);
+			transform: initial;
+			opacity: 0;
+		
+		}
+	}
+
+	&__checkbox-text {
+		@include caption;
+	}
+}
+
+.checkout-hero {
+	@include flex-column;
+	gap: adapt(80, 20);
+	&:not(:last-child) {
+		margin-bottom: adapt(60, 40);
+	}
+	&__breadcrumbs {
+	}
+
+	&__title {
+	}
+}
+
+.checkout-summary {
+	padding: 10px;
+	background: var(--color-primary-50);
+	&__title {
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid var(--color-dark-gray);
+	}
+
+	&__items {
+		padding-bottom: unset;
+		border-bottom: unset;
+	}
+
+	&__item {
+		padding: 10px;
+		align-items: center;
+		border: 1px solid var(--color-medium-gray);
+	}
+
+	&__thumbnail {
+		height: 50px;
+		background: var(--color-white);
+	}
+
+	&__info {
+	}
+
+	&__category {
+		color: var(--color-primary-500);
+	}
+
+	&__name {
+		font-weight: 500;
+		font-size: 18px;
+
+		@include media($mobile) {
+			@include body;
+		}
+	}
+
+	&__meta {
+	}
+
+	&__qty {
+	}
+
+	&__price {
+		@include body-l;
+		.woocommerce-Price-amount bdi {
+			align-items: center;
+			display: flex;
+		}
+		.woocommerce-Price-currencySymbol {
+			font-size: 30px;
+			margin-top: -5px;
+		}
+		.nbrb-icon {
+		}
+	}
+
+	&__total {
+		font-size: 16px;
+		font-weight: 500;
+		border: 0;
+		padding-bottom: unset;
+			padding-top: adapt(20, 10);
+		margin-bottom: adapt(20, 10);
+		.woocommerce-Price-amount {
+			@include title-3;
+		}
+		.nbrb-icon {
+			font-size: 40px;
+			font-weight: 500;
+			color: var(--color-primary-800);
+		}
+	}
+	&__final-total {
+		border-top: 1px solid var(--color-dark-gray);
+		padding-top: adapt(20, 10);
+	}
+	&__agreements {
+	}
+
+	&__actions {
+		gap: adapt(20, 10);
+	}
+
+	&__btn {
+		max-width: 100%;
+	}
+
+	&__btn--primary {
+	}
+
+	&__btn-text {
+	}
+
+	&__btn-loader {
+	}
+
+	&__link {
+		@include button;
+		color: var(--color-deep-text);
+	}
+}

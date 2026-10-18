@@ -1,0 +1,210 @@
+@use "../tools" as *;
+
+// ===== СТРАНИЦА THANK YOU =====
+
+.order-received {
+	padding: var(--section-padding-05) 0;
+	min-height: 60vh;
+
+	&__container {
+	}
+
+	// ===== ВЕРХНИЙ БЛОК =====
+
+	&__header {
+		animation: fadeInUp 0.6s ease;
+	}
+
+	&__title {
+	}
+
+	&__text {
+	}
+
+	&__order-number {
+		display: inline-block;
+		padding: adapt(12, 10) adapt(24, 20);
+		background: var(--color-white);
+		border-radius: adapt(6, 4);
+		font-size: adapt(16, 14);
+		color: var(--color-dark-gray);
+
+		strong {
+			color: var(--color-primary-800);
+			font-weight: 700;
+		}
+	}
+
+	// ===== СЕКЦИИ =====
+
+	&__section {
+		animation: fadeInUp 0.6s ease 0.3s both;
+	}
+
+	&__section-title {
+	}
+
+	// ===== ТОВАРЫ =====
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		gap: adapt(20, 16);
+	}
+
+	&__item {
+		display: grid;
+		grid-template-columns: 70px 1fr auto;
+		gap: adapt(40, 10);
+		align-items: center;
+		background: var(--color-primary-50);
+		border-radius: adapt(12, 10);
+		transition: all 0.3s ease;
+	}
+
+	&__item-thumbnail {
+		border-radius: 8px;
+		overflow: hidden;
+		background: var(--color-white);
+
+		@include media($mobile) {
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__item-info {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__item-category {
+		@include body-s;
+		color: var(--color-primary-500);
+	}
+
+	&__item-name {
+		font-size: 18px;
+		font-weight: 500;
+	}
+
+	&__item-variations {
+		display: flex;
+		flex-wrap: wrap;
+		gap: adapt(12, 8);
+		margin-top: adapt(8, 6);
+		font-size: adapt(14, 13);
+	}
+
+	&__item-variation {
+		color: var(--color-dark-gray);
+
+		strong {
+			color: var(--color-primary-700);
+			font-weight: 600;
+		}
+	}
+
+	&__item-quantity {
+		color: var(--color-primary-main-blue);
+		white-space: nowrap;
+
+		@include media($mobile) {
+		}
+	}
+
+	// ===== ДАННЫЕ КЛИЕНТА =====
+
+	&__details {
+		gap: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include media($tablet) {
+			flex-wrap: wrap;
+
+			& > * {
+				flex: 1 1 100%;
+			}
+		}
+	}
+
+	&__detail {
+		color: var(--color-deep-text);
+	}
+
+	&__detail-label {
+		@include body-s;
+		margin-bottom: 10px;
+
+		@include media($mobile) {
+			@include caption;
+			margin-bottom: 10px;
+		}
+	}
+
+	&__detail-value {
+		@include body-l;
+		&:not(:last-child) {
+			margin-bottom: adapt(8, 6);
+		}
+	}
+
+	&__detail-meta {
+		@include body-l;
+		a {
+			color: var(--color-primary-700);
+			text-decoration: none;
+			transition: color 0.3s ease;
+
+			&:hover {
+				color: var(--color-primary-800);
+				text-decoration: underline;
+			}
+		}
+
+		&:not(:last-child) {
+			margin-bottom: adapt(4, 3);
+		}
+	}
+
+	// ===== КНОПКИ =====
+
+	&__actions {
+		@include flex-column;
+		animation: fadeInUp 0.6s ease 0.5s both;
+		align-items: center;
+	}
+
+	&__btn {
+	}
+}
+
+// ===== АНИМАЦИИ =====
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes scaleIn {
+	from {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}

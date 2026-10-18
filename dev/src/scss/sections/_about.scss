@@ -1,0 +1,34 @@
+@use "../tools" as *;
+
+.about {
+	margin-top: var(--section-padding);
+	&__container {
+		display: grid;
+		gap: 20px;
+		grid-template-columns: 0.7fr 1fr;
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
+	}
+
+	&__content {
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(50, 40);
+		}
+	}
+
+	&__descr {
+		border-radius: 0;
+		border-color:  var(--color-light-gray);
+		@include body-l;
+		padding: adapt(40, 10) adapt(20, 10);
+	}
+
+	&__image {
+		min-height: adapt(300, 174);
+	}
+}

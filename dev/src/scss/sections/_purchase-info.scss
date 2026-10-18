@@ -1,0 +1,72 @@
+@use "../tools" as *;
+
+.purchase-info {
+	&__container {
+		@include flex-column;
+		gap: 60px;
+	}
+
+	&__content {
+		.section-header {
+			&:not(:last-child) {
+				margin-bottom: 40px;
+			}
+		}
+	}
+
+	&__list {
+		@include reset-list;
+
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		flex-wrap: wrap;
+
+		@include media($mobile) {
+			flex-direction: column;
+		}
+	}
+
+	&__item {
+	}
+}
+
+.purchase-info-item {
+	max-width: 285px;
+	@include flex-column;
+	align-items: center;
+	text-align: center;
+
+	@include media($mobile) {
+		max-width: 100%;
+	}
+
+	&__icon {
+		@include square(adapt(102, 50));
+		@include flex-center;
+		background: var(--color-light-gray);
+		border: 1px solid var(--color-primary-500);
+		border-radius: 100%;
+
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 10);
+		}
+
+		img {
+			height: adapt(48, 24);
+			flex-shrink: 0;
+		}
+	}
+
+	&__title {
+		@include body-l;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__descr {
+		@include small-text;
+	}
+}

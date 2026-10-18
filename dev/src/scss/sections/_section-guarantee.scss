@@ -1,0 +1,9 @@
+@use "../tools" as *;
+
+.section-guarantee {
+	&__container {
+	}
+	.section-header {
+		max-width: 720px;
+	}
+}

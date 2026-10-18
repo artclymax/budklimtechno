@@ -1,0 +1,59 @@
+@use "../tools" as *;
+
+.section-install {
+	display: grid;
+	//grid-template-columns: 1fr 1fr;
+	display: flex;
+	gap: 40px 20px;
+	@include media($mobile) {
+		flex-wrap: wrap;
+	}
+	&__left {
+		@include flex-column;
+		gap: adapt(20, 10);
+		flex: 1;
+		padding-left: container-padding();
+		@include media($mobile) {
+			flex: 1 1 100%;
+			padding: var(--container-padding);
+		}
+	}
+
+	&__btn {
+	}
+
+	&__right {
+		flex: 1;
+		position: relative;
+		z-index: 1;
+		padding: 40px;
+		padding-right: container-padding();
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+		@include media($mobile) {
+			flex: 1 1 100%;
+			padding: var(--container-padding);
+			padding-bottom: 188px;
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__item {
+		--width: 32px;
+		gap: 32px;
+		@include body-l;
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+
+		@include media($mobile) {
+			--object-pos: center top;
+		}
+	}
+}

@@ -1,0 +1,42 @@
+@use "../tools" as *;
+
+.header-contacts {
+	@include reset-list;
+	@include flex-column;
+	gap: 4px;
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__messengers {
+	}
+
+	&__phone {
+		color: var(--color-dark-gray);
+	}
+	.icon {
+		--width: 44px;
+		--bg-size: 21px;
+
+		@include media($tablet) {
+			--width: 32px;
+			gap: 0;
+		}
+	}
+}
+.messengers {
+	@include reset-list;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+	&__item {
+	}
+
+	&__link {
+		@include square(32px);
+	}
+}

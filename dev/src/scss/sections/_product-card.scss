@@ -1,0 +1,247 @@
+@use "../tools" as *;
+
+.product-card {
+	@include flex-column;
+	height: 100%;
+	&__image-link {
+		display: flex;
+		height: 235px;
+		--object-fit: contain;
+		border-radius: 3px;
+		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+		flex-shrink: 0;
+		&:not(:last-child) {
+			margin-bottom: adapt(30, 20);
+		}
+	}
+
+	&__categories {
+		@include reset-list;
+		@include flex-column;
+		@include small-text;
+		gap: 4px;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+		a {
+			@include reset-link;
+			color: var(--color-primary-700);
+			@include hover-link;
+		}
+	}
+
+	&__title {
+		@include reset;
+		@include body-l;
+		color: var(--color-deep-text);
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+		a {
+			@include reset-link;
+			@include hover-link;
+		}
+	}
+
+	&__tags {
+		@include reset-list;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		@include small-text;
+		gap: 10px;
+
+		li {
+			&:last-of-type {
+				display: none;
+			}
+		}
+		margin-bottom: adapt(20, 10);
+	}
+
+	&__price {
+	}
+	.btn {
+		max-width: unset;
+		width: unset;
+		.shop-list & {
+			width: 100%;
+		}
+	}
+
+	.custom-variation-info {
+		flex-grow: 1;
+	}
+	.added_to_cart.wc-forward {
+		display: none;
+	}
+	.btn.loading {
+		pointer-events: none;
+		opacity: 0.5;
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.5);
+			z-index: 1;
+		}
+	}
+	.add-to-card-box {
+		@include flex-column;
+		gap: 20px;
+		.woocommerce-variation-add-to-cart {
+			width: 100%;
+			button {
+				width: 100%;
+			}
+		}
+	}
+}
+.product-card--popular {
+	.variations {
+		display: none;
+	}
+	.add-to-card-box {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: adapt(20, 10);
+		flex-direction: row;
+		.woocommerce-variation-add-to-cart,
+		form {
+			flex: 0 1 265px;
+
+			.btn {
+				width: 100%;
+				padding: 14px;
+			}
+		}
+		&__link {
+			&::before {
+				content: "";
+				@include square(16px);
+				@include bgimg(url("../../../public/images/icons/eye.svg"));
+				transition: all 0.3s;
+			}
+
+			@include hover {
+				&::before {
+					@include bgimg(url("../../../public/images/icons/eye--white.svg"));
+				}
+			}
+		}
+
+		&__link-text {
+			font-size: 0;
+		}
+	}
+}
+.price-box {
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--color-deep-text);
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	margin-bottom: 20px;
+	@include media($mobile) {
+		@include title-2;
+		margin-bottom: 20px;
+	}
+	.nbrb-icon {
+		font-size: 40px;
+		font-weight: 500;
+		color: var(--color-primary-700);
+		@include media($mobile) {
+		}
+	}
+	del {
+		font-size: 16px;
+		opacity: 0.8;
+		order: 2;
+		align-self: flex-end;
+		.nbrb-icon {
+			font-size: 30px;
+			font-weight: 500;
+			color: var(--color-primary-700);
+		}
+	}
+	ins:last-of-type {
+		text-decoration: none;
+	}
+}
+
+.add-to-card-box {
+	margin-top: auto;
+	&__link {
+	}
+
+	&__link-text {
+	}
+}
+.variations {
+	@include reset-list;
+	@include body-s;
+	margin-bottom: 20px;
+	@include flex-column;
+	gap: 20px;
+	select {
+		display: none !important;
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+	}
+	&__label {
+		flex-shrink: 0;
+	}
+	&__sublist {
+		@include reset-list;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 4px;
+	}
+
+	&__subitem {
+		//flex-grow: 1;
+		display: inline-flex;
+		max-width: 124px;
+	}
+	&__btn {
+		hyphens: auto;
+		width: 100%;
+		padding: 10px 8px;
+		border: 0.5px solid var(--color-primary-500);
+		border-radius: 2px;
+		background: var(--color-white);
+		color: #333;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		@include hover {
+			background: var(--color-primary-800);
+			color: var(--color-white);
+		}
+	}
+	&__btn.active,
+	&__btn.selected {
+		background: var(--color-primary-800);
+		color: var(--color-white);
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+
+	&__native-select {
+		display: none;
+	}
+}
+.variations_form {
+	@include flex-column;
+	height: 100%;
+}

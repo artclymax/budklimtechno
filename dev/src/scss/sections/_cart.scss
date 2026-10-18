@@ -1,0 +1,269 @@
+@use "../tools" as *;
+
+.page-cart {
+	@include media($mobile) {
+		margin-bottom: var(--section-padding);
+	}
+	&__container {
+		@include flex-column;
+		gap: 40px;
+	}
+}
+.page-cart-hero {
+	@include flex-column;
+	gap: adapt(40, 20);
+	&__breadcrumbs {
+	}
+
+	&__title {
+	}
+}
+
+.page-cart-content {
+}
+
+.cart {
+	position: relative;
+	&__layout {
+		display: grid;
+		grid-template-columns: 1fr 0.48fr;
+		gap: 40px 20px;
+		align-items: start;
+
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__form {
+		@include flex-column;
+		gap: adapt(60, 40);
+	}
+
+	&__items {
+		display: grid;
+		gap: 20px;
+	}
+
+	&__actions {
+	}
+
+	&__continue-shopping {
+		@include hover-link;
+		@include button;
+		color: var(--color-deep-text);
+		border-bottom: 1px solid currentColor;
+
+		@include media($mobile) {
+			@include button;
+		}
+	}
+
+	&__sidebar {
+		background: var(--color-primary-50);
+	}
+}
+.cart-item {
+	display: grid;
+	grid-template-columns: 0.8fr 1.1fr 0.5fr 0.5fr auto;
+	align-items: center;
+	gap: adapt(40, 20);
+	background: var(--color-primary-50);
+
+	@include media($mobile) {
+		grid-template-columns: 0.7fr 1fr auto;
+	}
+
+	&__thumbnail {
+		a {
+			display: block;
+			width: 100%;
+			height: 116px;
+			overflow: hidden;
+			border-radius: 6px;
+			background: var(--color-white);
+			@include media($mobile) {
+				height: adapt(116, 60, $finishBreakpoint, $mobile);
+			}
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	&__info {
+		display: grid;
+		gap: 10px;
+		@include media($mobile) {
+			grid-column: span 2;
+		}
+	}
+
+	&__category {
+		a {
+			@include body-s;
+			color: var(--color-primary-500);
+			@include hover-link;
+		}
+	}
+
+	&__title {
+		display: grid;
+		gap: 10px;
+
+		a {
+			font-weight: 500;
+			font-size: 20px;
+			color: var(--color-deep-text);
+			@include hover-link;
+		}
+	}
+
+	&__variations {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		flex-wrap: wrap;
+		font-size: 12px;
+		color: var(--color-primary-500);
+	}
+
+	&__variation {
+	}
+
+	&__quantity {
+		justify-self: center;
+	}
+
+	&__price {
+		@include title-3;
+		display: flex;
+		align-items: center;
+		@include media($mobile, min) {
+			justify-self: center;
+		}
+		.nbrb-icon {
+			font-size: adapt(35, 24);
+			font-weight: 500;
+			color: var(--color-primary-800);
+		}
+	}
+
+	&__remove {
+		justify-self: end;
+		font-size: 0;
+		transition: all 0.3s;
+		a {
+			display: flex;
+			@include square(24px);
+			gap: 0;
+			&::before {
+				@include square(24px);
+			}
+		}
+		@include hover {
+			opacity: 0.5;
+		}
+	}
+}
+
+.quantity-input {
+	@include title-3;
+	border: 1px solid var(--color-medium-gray);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+	border-radius: 4px;
+	&__btn {
+		@include title-3;
+		font-weight: 400;
+		width: 30px;
+	}
+
+	&__btn--minus {
+	}
+
+	&__field {
+		width: 30px;
+		@include title-3;
+	}
+
+	&__btn--plus {
+	}
+}
+.cart-totals {
+	&__title {
+		margin-bottom: 20px;
+		font-size: 24px;
+		font-weight: 500;
+	}
+
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 20px;
+		border-top: 1px solid var(--color-deep-text);
+		margin-bottom: adapt(24, 10);
+		span {
+			font-weight: 500;
+		}
+		.woocommerce-Price-amount {
+			@include title-3;
+		}
+		.nbrb-icon {
+			font-size: adapt(35, 24);
+			font-weight: 500;
+			color: var(--color-primary-800);
+		}
+	}
+
+	&__row--coupon {
+	}
+
+	&__row--fee {
+	}
+
+	&__row--tax {
+	}
+
+	&__row--total {
+	}
+
+	&__total-title {
+		@include reset;
+		font-size: 28px;
+		font-weight: 500;
+	}
+
+	&__buttons {
+		@include flex-column;
+		gap: adapt(20, 10);
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 10);
+		}
+	}
+
+	&__btn {
+	}
+
+	&__btn--checkout {
+	}
+
+	&__btn--secondary {
+	}
+	.btn {
+		max-width: 100%;
+	}
+	&__note {
+		@include body-s;
+		text-align: center;
+	}
+}
+
+.cart-notice {
+	position: absolute;
+	top: -20%;
+	left: 0;
+	width: 100%;
+}

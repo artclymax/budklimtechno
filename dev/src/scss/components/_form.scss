@@ -1,0 +1,201 @@
+@use "../tools" as *;
+
+.form-wrapper > p {
+	@include reset;
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+
+	.wpcf7-spinner {
+		@include reset;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	input[type="submit"],
+	input[type="button"] {
+		text-wrap: wrap;
+	}
+}
+
+.form-input {
+	@include body-s;
+	border: 1px solid var(--color-primary-500);
+	padding: adapt(18, 16) 20px;
+	border-radius: 6px;
+	background: var(--color-white);
+	width: 100%;
+	transition: all 0.3s;
+	color: var(--color-black);
+
+	&::placeholder {
+		opacity: 0.9;
+	}
+
+	@include focus {
+		border-color: var(--color-primary-main-blue);
+	}
+
+	&.wpcf7-not-valid {
+		border-color: red;
+	}
+}
+
+.form-textarea {
+	resize: none;
+	height: 84px;
+}
+
+.form-btn {
+	//justify-self: start;
+	//width: initial;
+	//max-width: 200px;
+	//max-width: 100%;
+	//@include reset-btn;
+	//display: inline-flex;
+	//width: initial;
+	//font-family: var(--font-family-title);
+	//color: var(--color-dark);
+	//text-transform: uppercase;
+	max-width: 100%;
+	@include media($mobile) {
+	}
+}
+
+.form-field {
+	@include flex-column;
+	gap: 10px;
+
+	&__text {
+		//@include helper-text;
+		//font-weight: 600;
+		//font-size: 14px;
+		//color: var(--color-dark);
+	}
+	&__input {
+	}
+}
+
+// VALID-TIP
+.wpcf7-form-control-wrap {
+	position: relative;
+}
+.wpcf7-not-valid-tip {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transform: translateY(100%);
+	font-size: 14px;
+}
+
+// ACCEPTANCE
+.wpcf7-acceptance {
+	* {
+		@include reset;
+	}
+
+	input {
+		display: none;
+	}
+	input:checked ~ .wpcf7-list-item-label {
+		.form-checkbox-icon {
+			background-color: var(--color-primary-800);
+			border-color: var(--color-primary-800);
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
+	.wpcf7-list-item-label {
+		&::before,
+		&::after {
+			display: none;
+		}
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.form-checkbox-icon {
+		flex-shrink: 0;
+		@include flex-center;
+		@include square(32px);
+		border: 1px solid var(--color-primary-800);
+		background-color: var(--color-0);
+		overflow: hidden;
+		border-radius: 6px;
+
+		&::before {
+			content: "";
+			@include square(100%);
+			@include bgimg(url("../../../public/icons/check-icon.svg"), 24px);
+			transition: all 0.3s;
+			opacity: 0;
+		}
+	}
+
+	.form-checkbox-text {
+		@include caption;
+		//opacity: 0.7;
+		a {
+			text-decoration: none;
+			color: inherit;
+			transition: all 0.3s;
+
+			@include hover {
+				opacity: 1;
+				color: var(--color-primary-800);
+			}
+		}
+	}
+}
+
+//! CUSTOM FILE BTN
+.form-file {
+	display: none;
+}
+.file-label {
+	border: 2px dashed rgba(111, 111, 111, 0.3);
+	padding: 16px 16px 28px;
+	background: rgba(255, 255, 255, 0.05);
+	display: flex;
+	align-items: center;
+	gap: 12px;
+
+	&::before {
+		content: "";
+		flex-shrink: 0;
+		display: inline-flex;
+		@include square(28px);
+		@include bgimg(url("../../../public/images/icons/file-icon.svg"));
+	}
+	&__text {
+		display: none;
+	}
+}
+.file-text {
+	font-size: 14px;
+	@include flex-column;
+	gap: 4px;
+	p {
+		@include reset;
+		@include flex-column;
+		gap: 4px;
+	}
+
+	span {
+		opacity: 0.4;
+	}
+
+	.title-font {
+		font-family: var(--font-family-title);
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 120%;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		opacity: 1;
+	}
+}

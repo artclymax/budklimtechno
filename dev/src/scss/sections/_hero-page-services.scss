@@ -1,0 +1,75 @@
+@use "../tools" as *;
+
+.hero-page-services {
+	--padding-top: #{adapt(40, 20)};
+	position: relative;
+	&__container {
+		display: grid;
+		gap: 20px;
+		grid-template-columns: 1fr 1.4fr;
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+	}
+
+	&__breadcrumbs {
+		&:not(:last-child) {
+			margin-bottom: adapt(60, 40);
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 10);
+		}
+	}
+
+	&__descr {
+		@include body-l;
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 20);
+		}
+	}
+
+	&__phone {
+		@include media($mobile, min) {
+			right: container-padding() !important;
+			transform: translateY(0) !important;
+		}
+		@include media($mobile) {
+			bottom: 104px !important;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+		@include media($tablet) {
+			flex-wrap: wrap;
+			padding-bottom: 20px;
+		}
+	}
+
+	&__btn {
+		max-width: 100%;
+	}
+	&__image {
+		min-height: 250px;
+		@include media($mobile) {
+			min-height: 124px;
+		}
+	}
+}
+.hero-page-services {
+	.home-hero__phone {
+		@include media($tablet) {
+			transform: translateY(-50%);
+		}
+	}
+}

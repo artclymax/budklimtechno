@@ -1,0 +1,46 @@
+@use "../tools" as *;
+
+.section {
+}
+.section-slider {
+	&__pagination {
+	}
+}
+.swiper {
+}
+.section-slider-swiper {
+	&__wrapper {
+	}
+}
+.section-slider-slide {
+	.home-hero-slide {
+		position: relative;
+		&__container {
+		}
+
+		&__wrapper {
+			padding-top: adapt(108, 60);
+			@include media($mobile, min) {
+				padding-bottom: 88px;
+			}
+		}
+
+		&__content {
+		}
+
+		&__label {
+		}
+
+		&__title {
+		}
+
+		&__descr {
+		}
+
+		&__btn {
+		}
+
+		&__image {
+		}
+	}
+}

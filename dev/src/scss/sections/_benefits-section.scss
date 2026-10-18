@@ -1,0 +1,51 @@
+@use "../tools" as *;
+
+.benefits-section {
+	&__container {
+		.section-header {
+			&:not(:last-child) {
+				margin-bottom: adapt(60, 40);
+			}
+		}
+	}
+
+	&__list {
+		--min: 183px;
+		--gap: 20px;
+	}
+
+	&__item {
+	}
+}
+
+.benefits-section-item {
+	@include flex-column;
+	gap: 10px;
+	text-align: center;
+
+	&__icon {
+		border: 1px solid var(--color-primary-700);
+		border-radius: 6px;
+		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+
+		@include flex-center;
+		height: adapt(103, 60);
+		padding: 10px;
+
+		@include media($mobile) {
+			align-self: center;
+		}
+
+		img {
+			height: adapt(80, 40);
+		}
+	}
+
+	&__title {
+		@include body-l;
+	}
+
+	&__descr {
+		@include small-text;
+	}
+}

@@ -1,0 +1,11 @@
+<?php get_header() ?>
+<?php get_template_part('partials/components/hero-page-archive'); ?>
+<?php get_template_part('partials/category-list'); ?>
+<?php get_template_part('partials/category-about'); ?>
+<?php get_template_part('partials/category-description'); ?>
+<?php get_template_part('partials/category-children-list'); ?>
+<?php get_template_part('partials/category-products'); ?>
+<?php get_template_part('partials/category-specs'); ?>
+<?php get_template_part('partials/cta-block'); ?>
+<?php get_template_part('partials/section-contacts'); ?>
+<?php get_footer() ?>

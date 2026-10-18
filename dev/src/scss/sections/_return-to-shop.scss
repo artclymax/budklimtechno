@@ -1,0 +1,21 @@
+@use "../tools" as *;
+
+.return-to-shop {
+	@include flex-column;
+	gap: 10px;
+	align-items: center;
+	max-width: 360px;
+	margin: 0 auto;
+	text-align: center;
+	&__icon {
+	}
+
+	&__title {
+	}
+
+	&__text {
+	}
+
+	&__btn {
+	}
+}

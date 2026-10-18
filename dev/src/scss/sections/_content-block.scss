@@ -1,0 +1,21 @@
+@use "../tools" as *;
+
+.content-block {
+	margin-top: var(--section-padding);
+	&__container {
+	}
+
+	&__wrapper {
+		@include flex-column;
+		gap:  10px;
+	}
+
+	&__title {
+		font-size: adapt(20, 16);
+		font-weight: 500;
+	}
+
+	&__descr {
+		@include body-s;
+	}
+}

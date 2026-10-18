@@ -1,0 +1,36 @@
+@use "../tools" as *;
+
+.section-contacts {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 20px;
+		align-items: center;
+
+		@include media($tablet) {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: adapt(38, 20);
+	}
+
+	&__title {
+	}
+
+	&__map {
+		padding: 10px;
+		iframe {
+			min-height: 310px;
+			height: 100%;
+			width: 100%;
+			border: none;
+		}
+	}
+}

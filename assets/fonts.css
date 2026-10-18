@@ -1,0 +1,179 @@
+@font-face {
+	font-family: 'Inter-VF';
+	src:
+		url('./fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2-variations'),
+		url('./fonts/Inter-Italic-VariableFont_opsz,wght.woff') format('woff');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter-VF';
+	src:
+		url('./fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2-variations'),
+		url('./fonts/Inter-VariableFont_opsz,wght.woff') format('woff');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-Black.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-BlackItalic.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-BlackItalic.woff') format('woff');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-Bold.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-BoldItalic.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-BoldItalic.woff') format('woff');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-ExtraLight.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-ExtraLight.woff') format('woff');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-ExtraLightItalic.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-ExtraLightItalic.woff') format('woff');
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-Italic.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-Italic.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-Light.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-LightItalic.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-LightItalic.woff') format('woff');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-Medium.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-MediumItalic.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-MediumItalic.woff') format('woff');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-Regular.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-SemiBold.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-SemiBoldItalic.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-SemiBoldItalic.woff') format('woff');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-Thin.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-Thin.woff') format('woff');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter_18pt';
+	src:
+		url('./fonts/Inter_18pt-ThinItalic.woff2') format('woff2'),
+		url('./fonts/Inter_18pt-ThinItalic.woff') format('woff');
+	font-weight: 100;
+	font-style: italic;
+	font-display: swap;
+}

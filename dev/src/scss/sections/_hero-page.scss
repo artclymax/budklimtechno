@@ -1,0 +1,62 @@
+@use "../tools" as *;
+
+.hero-page {
+	--padding-top: #{adapt(50, 10)};
+
+	position: relative;
+	z-index: 1;
+	padding-top: calc(var(--header-height) + var(--padding-top));
+	padding-bottom: adapt(45, 20);
+	@include media($tablet) {
+		padding-top: var(--padding-top);
+		padding-bottom: var(--section-padding-05);
+	}
+	&__container {
+		position: relative;
+		@include flex-column;
+		gap: 60px;
+	}
+
+	&__breadcrumbs {
+	}
+
+	&__content {
+		@include flex-column;
+		gap: adapt(20, 10);
+		max-width: adapt(740, 420, $mobile);
+
+		@include media($mobile) {
+			max-width: 100%;
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		@include body-l;
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+
+		@include media($mobile) {
+			--object-pos: right;
+			@include overlay(var(--color-primary-50), 0.5);
+		}
+	}
+	.home-hero__phone {
+		@include media($tablet) {
+			bottom: 0;
+			right: 20px;
+			transform: translateY(100%);
+			@include square(53px);
+		}
+	}
+}
+.hero-page-archive {
+}
+.hero-page-simple {
+	padding-bottom: unset;
+}

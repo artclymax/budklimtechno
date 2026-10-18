@@ -1,0 +1,155 @@
+@use "../tools" as *;
+@use "../components/btn" as *;
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100dvh;
+	z-index: 1000;
+	background: rgba(#5d618f, 0.4);
+	backdrop-filter: blur(15px); //50
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 10px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.35s ease;
+
+	.admin-bar & {
+		padding-top: calc(var(--wp-admin--admin-bar--height) + 10px);
+		//top: var(--wp-admin-bar-height);
+		//height: calc(100dvh - var(--wp-admin-bar-height));
+	}
+	&.active-modal {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	&__box {
+		background-color: var(--color-white);
+		background-position: center center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		padding: 20px 10px;
+		overflow: auto;
+		//border-radius: 12px;
+
+		transform: scale(0.8);
+		opacity: 0;
+
+		transition:
+			transform 0.35s cubic-bezier(0.17, 0.67, 0.55, 1.39),
+			opacity 0.3s ease;
+
+		.modal.active-modal & {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	&__close-btn {
+	}
+}
+.modal-close-btn {
+	@include reset;
+	background: transparent;
+	color: var(--color-accent);
+	border: none;
+	padding: 4px;
+	position: absolute;
+	top: adapt(30, 12, $mobile);
+	right: adapt(30, 10, $mobile);
+	transition: all 0.3s;
+	@include square(24px);
+
+	svg {
+		width: 100%;
+		height: 100%;
+		transition: all 0.3s;
+	}
+
+	@include hover {
+		opacity: 0.8;
+		svg {
+			transform: rotate(90deg);
+		}
+	}
+}
+.modal {
+	&__box {
+		background-color: var(--color-0);
+		//background-image: var(--bg-modal);
+
+		//background-position: bottom;
+		//background-size: cover;
+		//background-repeat: no-repeat;
+		padding: unset;
+		max-width: 1142px;
+		width: 100%;
+		background: var(--color-white);
+		//border-radius: adapt(24, 12) adapt(24, 12) 0 0;
+		//box-shadow: 0 4px 12px 0 rgba(43, 43, 47, 0.06);
+		//color: var(--color-dark);
+		@include flex-column;
+		position: relative;
+		z-index: 1;
+		@include media($mobile) {
+			//max-width: 420px;
+		}
+
+		.modal-close-btn {
+			color: var(--color-primary-800);
+			border: 2px solid var(--color-primary-800);
+			opacity: 0.7;
+			@include square(44px);
+			padding: 8px;
+			position: absolute;
+			top: adapt(40, 10, $mobile);
+			right: adapt(40, 10, $mobile);
+			//position: static;
+			margin-left: auto;
+			z-index: 5;
+		}
+	}
+	&__image {
+		@include image-abs;
+		z-index: -1;
+	}
+	&__body {
+		border: 1px solid var(--color-cold-steel-gray);
+		//max-width: 585px;
+		//margin: 0 auto;
+	}
+	&__title {
+		//font-size: adapt(30, 24);
+		//text-align: center;
+		//padding-right: 44px;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+		@include media($mobile) {
+			//margin-top: 44px;
+		}
+	}
+	&__wrapper {
+		width: 100%;
+		max-width: 611px;
+		padding: adapt(40, 10, $mobile);
+	}
+	&__logo {
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+	}
+	&__descr {
+		@include body-l;
+		color: var(--color-dark-gray);
+		&:not(:last-child) {
+			margin-bottom: adapt(40, 20);
+		}
+	}
+}

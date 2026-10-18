@@ -1,0 +1,105 @@
+@use "@/scss/tools" as *;
+
+.woocommerce-pagination .page-numbers,
+.pagination-page {
+	@include reset;
+	@include button;
+	list-style-type: none;
+	display: flex;
+	//overflow: auto;
+	gap: 10px;
+	justify-content: center;
+	//margin-top: adapt(40, 20);
+
+	.page-numbers {
+		color: inherit;
+		text-decoration: none;
+		background: var(--color-0);
+		//color: var(--color-accent);
+		@include square(24px);
+		//padding: 2px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 2px;
+		border: 1px solid var(--color-0);
+		transition: all 0.3s;
+		min-width: 24px;
+		@include title-4;
+
+		@include media($mobile) {
+			@include caption;
+		}
+		&:not(.dots) {
+			@include hover {
+				//background: var(--color-accent);
+				//border-color: var(--color-accent);
+				//color: var(--color-blue);
+				color: var(--color-white);
+
+				background: var(--color-primary-800);
+			}
+		}
+	}
+	.current {
+		background: var(--color-primary-800);
+		color: var(--color-white);
+		transition: all 0.3s;
+	}
+	.dots {
+	}
+	.next,
+	.prev {
+		border: 1px solid var(--color-primary-green);
+		//color: var(--color-accent);
+		//background: transparent;
+		//padding: 5px 16px;
+		width: auto;
+		@include media($mobile) {
+			padding: 6px;
+		}
+		svg {
+			@include square(16px);
+			transition: all 0.3s;
+		}
+		@include hover {
+			background: transparent !important;
+			border-color: transparent !important;
+			//color: var(--color-accent) !important;
+			color: var(--color-deep-text) !important;
+		}
+	}
+	.next {
+		@include hover {
+			transform: translateX(2px);
+		}
+	}
+	.prev {
+		@include hover {
+			transform: translateX(-2px);
+		}
+	}
+}
+.pagination-arrow {
+	display: none;
+}
+.pagination-next,
+.pagination-prev {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	&::before {
+		content: "";
+		@include square(24px);
+		@include bgimg(url("../../../public/icons/arrow-right.svg"));
+		transition: all 0.3s;
+		order: 2;
+	}
+}
+.pagination-prev {
+	&::before {
+		transform: rotate(180deg);
+		order: initial;
+	}
+}

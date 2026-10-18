@@ -1,0 +1,211 @@
+@use "../tools" as *;
+
+.header {
+	&.header-absolute {
+		@include media($tablet, min) {
+			position: absolute;
+			width: 100%;
+		}
+	}
+	@include flex-column;
+	gap: 20px;
+	@include media($tablet) {
+		gap: 10px;
+	}
+	&__top-box {
+		padding-block: 10px;
+
+		background: var(--color-white);
+		.header-transparent & {
+			background: var(--color-0);
+		}
+	}
+	&__container-top,
+	&__container-bottom {
+		width: 100%;
+	}
+
+	&__top {
+		padding-bottom: 5px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid var(--color-dark-gray);
+		display: flex;
+		justify-content: center;
+	}
+
+	&__middle {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 32px;
+		@include media($tablet) {
+			gap: 10px;
+		}
+	}
+
+	&__logo {
+		@include media($tablet) {
+			margin-right: auto;
+		}
+	}
+
+	&__aws {
+		flex: 0 1 500px;
+	}
+
+	&__contacts {
+		flex-shrink: 0;
+	}
+
+	&__search-btn {
+		@include reset-btn;
+		font-size: 0;
+		@include square(44px);
+		@include flex-center;
+		--width: 30px;
+		border: 1px solid var(--color-primary-800);
+		border-radius: 2px;
+		background: var(--color-white);
+	}
+
+	&__cart-btn {
+	}
+
+	&__burger-btn {
+	}
+
+	&__bottom {
+		background: var(--color-gradient);
+		padding: 4px 10px;
+		border-radius: 2px;
+		color: var(--color-white);
+		display: flex;
+		align-items: center;
+		gap: 100px;
+	}
+
+	&__catalog-btn {
+		@include reset-link;
+		@include button;
+
+		padding: 12px;
+		--width: 32px;
+		transition: all 0.3s;
+		@include hover {
+			opacity: 0.6;
+		}
+		@include media($tablet) {
+			display: flex;
+			width: 100%;
+
+			&::after {
+				content: "";
+				@include square(24px);
+				margin-left: auto;
+				background-color: var(--color-white);
+				@include bgimg(url("../../../public/icons/icon-link.svg"));
+			}
+		}
+	}
+
+	&__menu {
+	}
+}
+
+.cart-btn {
+	position: relative;
+	padding: 6px 20px;
+	border: 1px solid var(--color-primary-800);
+	border-radius: 2px;
+	background: var(--color-white);
+	transition: all 0.3s;
+	@include media($tablet) {
+		@include square(44px);
+		padding: unset;
+		@include flex-center;
+	}
+	@include hover {
+		background: var(--color-primary-800);
+		.icon {
+			--icon-bg: url("../../../public/images/icons/cart-white.svg");
+		}
+	}
+	&__counter {
+		position: absolute;
+		top: 6px;
+		right: 12px;
+		background: var(--color-white);
+		border-radius: 50%;
+		@include square(20px);
+		@include flex-center;
+		border: 1px solid var(--color-primary-800);
+		font-size: 14px;
+		text-align: center;
+
+		@include media($tablet) {
+			top: 4px;
+			right: 2px;
+		}
+	}
+
+	&__icon {
+		--width: 32px;
+		&::before {
+			transition: all 0.3s;
+		}
+	}
+}
+
+.header-menu {
+	@include media($tablet) {
+		background: var(--color-white);
+		color: var(--color-deep-text);
+		@include flex-column;
+		gap: 20px !important;
+	}
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	&__logo {
+	}
+
+	&__close-btn svg path{
+		fill: var(--color-primary-800);
+	}
+
+	&__aws {
+		flex: 1 1 100%;
+		width: 100%;
+	}
+
+	&__main-menu {
+	}
+
+	&__catalog-menu {
+	}
+
+	&__title {
+		@include reset;
+		font-weight: 400;
+		font-size: 12px;
+		letter-spacing: 7%;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__item {
+	}
+
+	&__contacts-box {
+		.contacts-box__messengers {
+			margin-left: 20px;
+			gap: 20px;
+		}
+	}
+}

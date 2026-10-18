@@ -1,0 +1,15 @@
+@use "../tools" as *;
+
+.section-header {
+	@include flex-column;
+	gap: adapt(20, 10);
+	max-width: 794px;
+	&__title {
+	}
+
+	&__descr {
+		@include body-l;	
+		//@include media($mobile, min) {
+		//}
+	}
+}

@@ -1,0 +1,106 @@
+@use "../tools" as *;
+
+.form-select {
+	display: none;
+}
+.custom-select {
+	position: relative;
+
+	&__select-field {
+		@include reset;
+		text-align: left;
+		border: none;
+		background: var(--color-0);
+		width: 100%;
+
+		//================
+		@include body-s;
+		border: 1px solid var(--color-primary-500);
+		border-radius: 2px;
+		padding: adapt(14, 10, $tablet) adapt(20, 10, $tablet);
+		background: var(--color-white);
+		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+		display: flex;
+		align-items: center;
+		gap: adapt(80, 20, $tablet);
+
+		justify-content: space-between;
+
+		&::after {
+			content: "";
+			flex-shrink: 0;
+			@include square(16px);
+			border-radius: 50%;
+			background-color: var(--color-white);
+			@include bgimg(url("../../../public/icons/select-icon.svg"), 16px);
+			transition: all 0.3s;
+
+			.custom-select-active & {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		border: 1px solid var(--color-primary-500);
+		border-radius: 2px;
+		background: var(--color-white);
+		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+
+		position: absolute;
+		z-index: 5;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		max-height: 200px;
+		overflow: auto;
+		transform: translateY(80%);
+		transition: all 0.3s;
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+		@include custom-scroll(var(--color-primary-800), var(--color-white), thin);
+		.custom-select-active & {
+			transform: translateY(100%);
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			border-bottom: 1px solid var(--color-gray);
+		}
+	}
+
+	&__btn {
+		@include reset;
+		text-align: left;
+		border: none;
+		background: var(--color-0);
+		width: 100%;
+		//================
+		@include body-s;
+		padding: adapt(14, 10, $tablet) adapt(20, 10, $tablet);
+
+		transition: all 0.3s;
+
+		&.custom-select-active {
+			background: var(--color-medium-gray);
+			color: var(--color-white);
+
+			@include hover {
+				background: var(--color-medium-gray);
+			}
+		}
+
+		@include hover {
+			background: var(--color-medium-gray);
+		}
+	}
+}
+.custom-select-active {
+}

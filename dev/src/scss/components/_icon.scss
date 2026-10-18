@@ -1,0 +1,76 @@
+@use "../tools" as *;
+
+.icon {
+	--width: 20px;
+	--height: var(--width);
+	--bg-size: contain;
+	--bg-color: var(--color-0);
+
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+
+	&::before {
+		content: "";
+		flex-shrink: 0;
+		//margin-top: 6px;
+		width: var(--width);
+		height: var(--height);
+		background-position: center;
+		background-size: var(--bg-size);
+		background-repeat: no-repeat;
+		background-color: var(--bg-color);
+		background-image: var(--icon-bg);
+	}
+
+	&--after {
+		&::before {
+			display: none;
+		}
+		&::after {
+			content: "";
+			flex-shrink: 0;
+			width: var(--width);
+			height: var(--height);
+			background-position: center;
+			background-size: var(--bg-size);
+			background-repeat: no-repeat;
+			background-image: var(--icon-bg);
+		}
+	}
+}
+.icon--link {
+	--icon-bg: url("../../../public/icons/icon-link.svg");
+}
+.icon--phone {
+	--icon-bg: url("../../../public/icons/icon-phone.svg");
+}
+.icon--cart {
+	--icon-bg: url("../../../public/icons/icon-cart.svg");
+}
+.icon--search {
+	--icon-bg: url("../../../public/images/icons/search-icon.svg");
+}
+.icon--catalog {
+	--icon-bg: url("../../../public/images/icons/catalog.svg");
+}
+.icon--email {
+	--icon-bg: url("../../../public/images/icons/email.svg");
+}
+.icon--address {
+	--icon-bg: url("../../../public/images/icons/address.svg");
+}
+.icon--time {
+	--icon-bg: url("../../../public/images/icons/time.svg");
+}
+
+.icon--filter {
+	--icon-bg: url("../../../public/images/icons/filter.svg");
+}
+
+.icon--remove {
+	--icon-bg: url("../../../public/images/icons/remove.svg");
+}
+.icon--check {
+	--icon-bg: url("../../../public/images/icons/check.svg");
+}

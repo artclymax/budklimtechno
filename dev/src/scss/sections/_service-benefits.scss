@@ -1,0 +1,45 @@
+@use "../tools" as *;
+
+.service-benefits {
+	&__container {
+	}
+
+	&__list {
+		--min: 280px;
+		gap: 20px;
+	}
+
+	&__item {
+	}
+}
+
+.service-benefits-item {
+	@include body-l;
+	border-color: var(--color-light-gray);
+	padding: 40px 20px;
+	@include flex-column;
+	align-items: center;
+	text-align: center;
+	&__icon {
+		height: 52px;
+		img {
+			height: 100%;
+		}
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__title {
+		@include reset;
+		font: inherit;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__descr {
+		margin: 0 auto;
+		max-width: 245px;
+	}
+}

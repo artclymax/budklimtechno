@@ -1,0 +1,35 @@
+@use "../tools" as *;
+[data-hidden-descr-content] {
+	--hidden-desc-height: 130px;
+	--hidden-desc-after-height: 60px;
+	--hidden-desc-after-bg: #fff;
+
+}
+/* Свёрнутое состояние */
+[data-hidden-descr-content].is-collapsed [data-hidden-descr-wrapper] {
+	max-height: var(--hidden-desc-height);
+	overflow: hidden;
+	position: relative;
+}
+
+/* Градиент-затемнение в конце свёрнутого текста */
+[data-hidden-descr-content].is-collapsed > [data-hidden-descr-wrapper]::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: var(--hidden-desc-after-height);
+	background: linear-gradient(to bottom, transparent, var(--hidden-desc-after-bg));
+	pointer-events: none;
+}
+
+/* Развёрнутое состояние */
+[data-hidden-descr-content].is-expanded [data-hidden-descr-wrapper] {
+	max-height: none;
+}
+
+[data-hidden-descr-btn] {
+	position: relative;
+	z-index: 2;
+}

@@ -1,0 +1,166 @@
+@use "../tools" as *;
+
+.product-details {
+	margin-bottom: var(--section-padding);
+	&__container {
+		@include flex-column;
+	}
+
+	&__links {
+	}
+
+	&__article {
+	}
+
+	&__producer {
+		color: var(--color-dark-gray);
+		&:not(:first-child) {
+			margin-top: 20px;
+		}
+	}
+}
+
+.product-details-links {
+	@include reset-list;
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--color-primary-500);
+	border-radius: 6px 6px 0 0;
+	overflow-y: auto;
+
+	@include media($mobile) {
+		flex-wrap: wrap;
+	}
+	&__item {
+		flex-shrink: 0;
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__link {
+		@include body-l;
+		@include hover-link;
+		padding: 24px adapt(25, 10);
+		transition: all 0.3s;
+		border-bottom: 2px solid var(--color-0);
+		@include media($mobile) {
+			width: 100%;
+			border-bottom: 2px solid var(--color-light-gray);
+		}
+		&.active-tab {
+			color: var(--color-primary-800);
+			border-color: var(--color-primary-800);
+		}
+	}
+}
+
+.product-details-tab {
+	border: 1px solid var(--color-primary-500);
+	border-radius: 0 0 6px 6px;
+	border-top: none;
+	padding: 30px adapt(25, 10);
+
+	&__descr {
+	}
+
+	&__specs {
+	}
+
+	&__docs {
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+		& > *:first-child {
+			grid-column: 1 / -1;
+		}
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+.product-details-specs {
+	@include reset-list;
+	@include flex-column;
+	gap: 2px;
+	max-width: 740px;
+	&__item {
+		border: 1px solid var(--color-medium-gray);
+		padding: 10px adapt(54, 10, $mobile);
+		display: grid;
+		grid-template-columns: 1fr 0.5fr;
+		align-items: center;
+		gap: 20px;
+		&:not(:first-child) {
+			border-top: none;
+		}
+
+		@include media($mobile) {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	&__key {
+		@include body-s;
+	}
+
+	&__value {
+		@include reset;
+	}
+}
+.product-details-docs {
+	@include reset-list;
+	@include flex-column;
+	max-width: 740px;
+	gap: 2px;
+	&__item {
+	}
+
+	&__link {
+		@include hover-link;
+		border: 1px solid var(--color-medium-gray);
+		border-bottom: none;
+		padding: 10px;
+		display: grid;
+		grid-template-columns: 1fr 0.4fr;
+		align-items: center;
+		gap: 20px;
+
+		@include media($mobile) {
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 10px;
+	}
+
+	&__title {
+		@include reset;
+	}
+
+	&__descr {
+		@include reset;
+	}
+
+	&__meta {
+		justify-self: end;
+		@include body-s;
+
+		&> *:not(:last-child) {
+			&::after {
+				content: '·';
+			}
+		}
+	}
+
+	&__type {
+	}
+
+	&__size {
+	}
+}

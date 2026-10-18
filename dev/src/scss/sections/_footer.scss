@@ -1,0 +1,151 @@
+@use "../tools" as *;
+
+.footer {
+	@include body-s;
+	padding-block: 30px;
+	background: var(--color-primary-100);
+	color: var(--color-dark-gray);
+
+	&__container {
+		@include flex-column;
+		gap: adapt(40, 20, $mobile);
+	}
+
+	&__top {
+		display: grid;
+		grid-template-columns: 0.8fr 0.5fr 0.5fr 1fr;
+		gap: 40px adapt(80, 20, $tablet);
+
+		@include media($tablet) {
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+		}
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__info {
+		@include flex-column;
+		gap: adapt(40, 20);
+		@include media($tablet) {
+			grid-column: 1 / -1;
+			margin-bottom: 20px;
+		}
+	}
+
+	&__logo {
+	}
+
+	&__descr {
+	}
+
+	&__menu {
+	}
+
+	&__contacts-box {
+		@include body;
+	}
+
+	&__middle {
+		@include media($mobile, min) {
+			order: 3;
+		}
+	}
+
+	&__content {
+	}
+
+	&__bottom {
+		font-weight: 500;
+		@include flex-column;
+		gap: 20px;
+		align-items: center;
+
+		@include media($mobile) {
+			@include caption;
+		}
+	}
+
+	&__links {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		flex-wrap: wrap;
+
+			@include media($mobile)  {
+				flex-direction: column;
+			}
+	}
+
+	&__link {
+	}
+
+	&__copy {
+		text-align: center;
+		font: inherit;
+	}
+}
+.footer-col {
+}
+.footer-spoiler {
+	&__btn {
+		@include reset-btn;
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		align-items: center;
+	}
+
+	&__title {
+		@include reset;
+		font-weight: 500;
+		font-size: 16px;
+		color: var(--color-primary-main-blue);
+		@include media($mobile, min) {
+			&:not(:last-child) {
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	&__icon {
+		@include media($mobile) {
+			flex-shrink: 0;
+			@include square(18px);
+			@include bgimg(url("../../../public/icons/spoiler-icon.svg"));
+			transition: all 0.3s;
+
+			.spoiler-active & {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__content {
+	}
+
+	&__wrapper {
+		@include media($mobile) {
+			padding-top: 10px;
+		}
+	}
+}
+.spoiler-active {
+}
+.footer-menu {
+	@include reset-list;
+	@include flex-column;
+	gap: 20px;
+	ul {
+		@include reset-list;
+		@include flex-column;
+		gap: 20px;
+	}
+	a {
+		@include reset-link;
+		@include hover-link;
+	}
+}

@@ -1,0 +1,44 @@
+@use "../tools" as *;
+
+.section-form {
+	position: relative;
+	z-index: 1;
+	padding-top: 134px;
+	padding-bottom: 85px;
+	@include media($mobile) {
+		padding-top: 411px;
+		padding-bottom: unset;
+		margin-bottom: var(--section-padding-05);
+	}
+	&__container {
+	}
+
+	&__wrapper {
+		max-width: 590px;
+		margin-left: auto;
+		@include flex-column;
+		gap: 20px;
+		
+		@include media($tablet) {
+			max-width: 480px;
+		}
+
+		@include media($mobile) {
+			max-width: 100%;
+		}
+	}
+
+	&__form {
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+		@include media($laptop, min) {
+			--object-fit: contain;
+		}
+		@include media($mobile) {
+			--object-pos: top;
+		}
+	}
+}

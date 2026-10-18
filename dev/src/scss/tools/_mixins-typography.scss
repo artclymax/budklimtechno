@@ -1,0 +1,109 @@
+@use "functions" as *;
+@use "mixins" as *;
+@use "constants" as *;
+
+@mixin title-1 {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 600;
+	font-size: adapt(64, 28);
+	line-height: 135%;
+}
+
+@mixin title-2 {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 500;
+	font-size: adapt(40, 22);
+	line-height: 135%;
+}
+
+@mixin title-3 {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 500;
+	font-size: adapt(28, 18);
+	line-height: 135%;
+
+	@include media( $mobile) {
+		font-weight: 600;	
+	};
+}
+
+@mixin title-4 {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 135%;
+}
+
+@mixin title-5 {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 135%;
+}
+
+// ---------------------------------
+
+@mixin body-l {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 500;
+	font-size: adapt(18, 16);
+	line-height: 120%;
+}
+
+@mixin body {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+}
+
+@mixin body-s {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 120%;
+}
+@mixin body-m {
+	@include body;
+}
+
+@mixin caption {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 120%;
+}
+
+@mixin small-text {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 120%;
+}
+
+@mixin button {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 120%;
+}
+
+
+@mixin menu {
+	@include reset;
+	font-family: var(--font-family-main);
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 120%;
+}

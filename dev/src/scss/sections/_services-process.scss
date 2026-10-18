@@ -1,0 +1,61 @@
+@use "../tools" as *;
+
+.section-services-process {
+	&__container {
+		@include flex-column;
+		gap: adapt(60, 40);
+	}
+}
+
+.services-process-swiper {
+	width: 100%;
+	&__wrapper {
+	}
+}
+
+.services-process-slide {
+	&:last-child {
+		.process-slide__number {
+			&::after {
+				display: none;
+			}
+		}
+	}
+	&__inner {
+		@include flex-column;
+		align-items: center;
+		text-align: center;
+	}
+
+	&__number {
+		order: unset;
+		@include square(54px);
+		font-size: 32px;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: calc(adapt(80, 60) * -1);
+			height: 9px;
+			width: 114px;
+			transform: translateY(-50%) translateX(100%);
+			@include bgimg(url("../../../public/images/arrow-line.svg"));
+		}
+	}
+
+	&__title {
+		@include body-l;
+		font-size: 18px;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__descr {
+		@include body-s;
+	}
+}

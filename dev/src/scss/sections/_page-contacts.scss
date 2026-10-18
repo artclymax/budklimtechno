@@ -1,0 +1,152 @@
+@use "../tools" as *;
+
+.page-contacts {
+	&__container {
+		@include flex-column;
+		gap: 60px;
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1.5fr;
+		gap: 35px 20px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__contacts {
+		@include flex-column;
+		gap: adapt(40, 20);
+		@include body-l;
+	}
+
+	&__title {
+	}
+
+	&__form {
+	}
+
+	&__map-box {
+		@include flex-column;
+		gap: 40px;
+	}
+
+	&__max-title {
+	}
+
+	&__map {
+		padding: 10px;
+		position: relative;
+
+		iframe {
+			border: none;
+			height: 290px;
+
+			@include media($mobile) {
+				height: 468px;
+			}
+		}
+	}
+
+	&__map-card {
+		position: absolute;
+		bottom: 40px;
+		right: 60px;
+		@include media($mobile) {
+			left: 10px;
+			right: 50px;
+			bottom: 60px;
+		}
+	}
+
+	&__payment {
+		@include flex-column;
+		gap: 40px;
+	}
+}
+.form-box {
+	@include flex-column;
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 10);
+		}
+	}
+
+	&__descr {
+		@include media($mobile) {
+			@include body-l;
+		}
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__form {
+	}
+}
+.map-card {
+	border-color: var(--color-light-gray);
+	border-radius: 0;
+	padding: adapt(10, 8, $tablet) 10px;
+	flex-direction: column;
+	align-items: start;
+	gap: 20px;
+	--width: 44px;
+	--bg-size: 21px;
+	@include media($mobile) {
+		gap: 10px;
+	}
+	&__title {
+		@include media($mobile) {
+			@include body-l;
+		}
+	}
+
+	&__text {
+		@include body-s;
+		@include media($mobile) {
+			text-align: center;
+		}
+	}
+}
+.page-contacts-payment {
+	&__title {
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		padding: adapt(40, 10) adapt(20, 10);
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__item {
+	}
+}
+.page-contacts-payment-item {
+	@include flex-column;
+	gap: adapt(20, 10);
+	&__value {
+		@include body-s;
+		color: var(--color-primary-700);
+		@include media($mobile) {
+			@include caption;
+		}
+	}
+
+	&__key {
+		@include body-l;
+	}
+}

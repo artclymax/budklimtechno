@@ -1,0 +1,74 @@
+@use "../tools" as *;
+
+.breadcrumbs {
+	--gap: 10px;
+	@include caption;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gap);
+	color: var(--color-secondary-text);
+
+	& > span {
+		display: flex;
+		align-items: center;
+		gap: var(--gap);
+
+		&:not(:last-child) {
+			&::after {
+				display: inline-flex;
+				content: "-";
+				//@include square(16px);
+				//@include bgimg(url("../../../public/images/icons/breadcrumbs-arrow.svg"));
+			}
+		}
+
+		a {
+			display: inline-flex;
+			text-decoration: none;
+			transition: all 0.3s;
+			color: var(--color-primary-green);
+			@include hover-link;
+		}
+	}
+	& > a {
+		display: inline-flex;
+		color: inherit;
+		text-decoration: none;
+		transition: all 0.3s;
+		opacity: 1 !important;
+		@include hover-link;
+	}
+	.current-item {
+		//color: var(--white-100);
+	}
+}
+.woocommerce-breadcrumb,
+.smart-breadcrumbs > ol {
+	@include reset-list;
+	--gap: 10px;
+	--woo-breadcrumb-color: var(--color-deep-text);
+	--woo-breadcrumb-color-link: var(--color-dark-gray);
+	@include caption;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--gap);
+	color: var(--woo-breadcrumb-color);
+
+	a {
+		@include hover-link;
+		color: var(--woo-breadcrumb-color-link);
+		display: flex;
+		align-items: center;
+		gap: var(--gap);
+
+		&::after {
+			display: inline-flex;
+			content: "";
+			//color: var(--woo-breadcrumb-color-link);
+			@include square(18px);
+			@include bgimg(url("../../../public/images/icons/breadcrumbs-arrow.svg"));
+		}
+	}
+}

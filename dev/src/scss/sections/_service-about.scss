@@ -1,0 +1,36 @@
+@use "../tools" as *;
+
+.service-about {
+	&__container {
+		display: grid;
+		gap: 20px;
+		grid-template-columns: 1fr 1fr;
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+	.section-header__descr {
+		@include media($mobile) {
+			@include body;
+		}
+	}
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 20px;
+		padding: adapt(40, 10) adapt(20, 10);
+		border-color: var(--color-light-gray);
+	}
+
+	&__item {
+	}
+}
+.service-about-item {
+	@include media($mobile, min) {
+		@include body-l;
+	}
+	&.icon {
+		--width: 32px;
+		gap: 32px;
+	}
+}
